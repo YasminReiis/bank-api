@@ -18,7 +18,6 @@ accounts = {}
 def root():
     return {"message": "Bank API running"}
 
-# LOGIN / REGISTER
 @app.post("/register")
 def register(username: str, password: str):
     if username in users:
@@ -34,7 +33,6 @@ def login(username: str, password: str):
 
     return {"message": "Login successful"}
 
-# CONTA
 @app.post("/create-account")
 def create_account(username: str):
     if username not in users:
@@ -52,7 +50,6 @@ def create_account(username: str):
 def get_accounts():
     return accounts
 
-# TRANSAÇÕES
 @app.post("/deposit")
 def deposit(account_id: int, amount: float):
     if account_id not in accounts:
